@@ -34,7 +34,6 @@ def base(times, algorithm, sampling):
     X_raw = dataset_orig.features
     y_raw = dataset_orig.labels.ravel()
 
-    # Isolate our examples for our labeled dataset.
     n_labeled_examples = X_raw.shape[0]
     print(n_labeled_examples)
 
@@ -124,17 +123,6 @@ def base(times, algorithm, sampling):
         "Training set: Consistency with random sampling= %f" % metric_orig_train.consistency())
 
 
-    # metric_subset_uncertainty = ClassificationMetric(dataset_subset,
-    #                                                      unprivileged_groups=unprivileged_groups,
-    #                                                      privileged_groups=privileged_groups)
-    #
-    # print(
-    #     "Training set: Generalized entropy with uncertainty sampling = %f" % metric_subset_uncertainty.theil_index())
-    #
-    #
-    # print(
-    #     "Training set: Consistency with random sampling= %f" % metric_orig_train.consistency())
-    # results_metric_orig.append(metric_orig_train.mean_difference())
 
     consistency_ints_random = metric_orig_train.consistency()
     results_metric_consistency_random.append(consistency_ints_random[0])
